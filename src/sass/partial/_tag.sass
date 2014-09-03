@@ -1,0 +1,19 @@
+.tag-filter
+  input
+    &[type='radio'], &[type='checkbox']
+      opacity: 0
+      + label.tag-label
+        span.tag-icon
+          margin: ($padding_s - $rb_size) $padding_s $padding_s $padding_s
+          cursor: pointer
+          display: block
+          padding: $padding_s
+          color: $c_main
+          border: 1px $c_main solid
+    &[type='radio']:checked, &[type='checkbox']:checked
+      + label.tag-label
+        span.tag-icon
+          color: $c_white
+          background: $c_main
+  .tag-opt
+    float: left

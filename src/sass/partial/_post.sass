@@ -1,0 +1,32 @@
+@import "compass/typography/vertical_rhythm"
+
+$tag_icon_s: 15px
+
+.post
+  //+debug-vertical-alignment
+  .pt-title
+    padding: $padding_l
+    font-size: $fs_l
+    background: $c_main
+    color: $c_white
+  .pt-info
+    float: right
+    padding-right: $padding_l
+  .pt-info-icon
+    padding: $padding_m
+  .pt-info-date
+    a
+      margin: $padding_s
+      text-decoration: none
+      line-height: $tag_icon_s
+      color: $c_main
+  .pt-content
+    margin: $padding_l
+  p
+    code
+      padding: 0px $padding_s
+      +adjust-font-size-to($fs_l)
+  pre
+    +margin-leader(.5)
+    +margin-trailer(.5)
+    font-size: 1.1em

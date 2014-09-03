@@ -1,0 +1,27 @@
+@import "global"
+
+.menu
+  @mixin mu-item
+    display: block
+    padding: 5px
+    margin: $padding_s 0px $padding_s $padding_s
+    a
+      text-decoration: none
+  .mu-entry
+    @include mu-item
+    border-right: 1px $c_main solid
+    border-left: 5px $c_main solid
+    border-top: 1px $c_main solid
+    border-bottom: 1px $c_main solid
+  .mu-brand
+    @include mu-item
+    padding: $padding_l - 1px 0px
+    border-right: 5px $c_main solid
+    border-left: 5px $c_main solid
+    border-top: 1px $c_main solid
+    border-bottom: 1px $c_main solid
+    text-align: center
+    font-weight: bold
+    font-size: $fs_l
+  .mu-icon
+    padding-right: 3px

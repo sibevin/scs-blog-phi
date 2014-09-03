@@ -1,0 +1,47 @@
+@import "compass/typography/vertical_rhythm"
+ 
+$base-font-size: $fs_default
+$base-line-height: $lh_default
+
+body
+  font-family: sans-serif
+  a, a:hover, a:checked
+    color: $c_main
+
+code
+  font-family: monospace
+
+.middle-list
+  display: table
+  .ml-row
+    display: table-row
+  .ml-cell
+    display: table-cell
+    vertical-align: middle
+
+.layout
+  //+debug-vertical-alignment
+  .pt-title
+    padding: $padding_l
+    font-size: $fs_l
+    background: $c_main
+    color: $c_white
+
+h1
+  +adjust-font-size-to($fs_xl)
+h2, h3, h4, h5, h6
+  +adjust-font-size-to($fs_l)
+p
+  +adjust-font-size-to($fs_default)
+
+.tag-list
+  a
+    margin: $padding_s $padding_s $padding_s 0px
+    padding: $padding_s
+    text-decoration: none
+    color: $c_main
+    border: 1px $c_main solid
+    border-bottom: 3px $c_main solid
+
+.meta
+  display: none

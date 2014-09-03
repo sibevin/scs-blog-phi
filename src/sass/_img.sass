@@ -1,0 +1,17 @@
+$img_list: ('clock-28x', 'clock_24x', 's', 28px),('category-28x', 'category_24x', 's', 28px),('china-28x', 'china_24x', 's', 28px),('paper-28x', 'paper_24x', 's', 28px),('person-28x', 'person_24x', 's', 28px),('tag-28x', 'tag_24x', 's', 28px),('clock-24x', 'clock_24x', 's', 24px),('tag-24x', 'tag_24x', 's', 24px),('category-24x', 'category_24x', 's', 24px),('paper-24x', 'paper_24x', 's', 24px)
+
+=img($path, $w, $h)
+  background: url($path) no-repeat scroll 0 0 rgba(0, 0, 0, 0)
+  background-size: $w $h
+  width: $w
+  height: $h
+
+=square-img($path, $size)
+  +img($path, $size, $size)
+
+@each $img in $img_list
+  .img-#{nth($img,1)}
+    @if nth($img,3) == 's'
+      +square-img("../../app/images/"+nth($img,2)+".svg", nth($img,4))
+    @else
+      +img(nth($img,2), nth($img,3), nth($img,4))

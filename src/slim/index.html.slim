@@ -1,9 +1,72 @@
 doctype html
-html
+html ng-controller="RootCtrl"
   head
-    link href="../css/app.css" rel="stylesheet"
-    script src="../js/app.js"
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1"
+    link href="./css/app.min.css" rel="stylesheet"
+    link href="./css/vendor/magula.min.css" rel="stylesheet"
+    script type="text/javascript" src="./js/vendor/angular-1.2.18.min.js"
+    script type="text/javascript" src="./js/vendor/angular-route-1.2.21.min.js"
+    script type="text/javascript" src="./js/vendor/highlight-8.1.min.js"
+    script type="text/javascript" src="./js/vendor/angular-highlightjs-0.3.0.min.js"
+    script type="text/javascript" src="./js/vendor/respond-1.4.2.min.js.js"
+    script type="text/javascript" src="./js/vendor/lodash-2.4.1.min.js"
+    //script type="text/javascript" src="./js/app.min.js"
+    script type="text/javascript" src="./js/app.js"
+    /[if lt IE 9]
+      script type="text/javascript" src="./js/vendor/html5shiv-3.7.2.min.js"
+      script type="text/javascript" src="./js/vendor/respond-1.4.2.min.js"
+    title
+      | {{ brand }}
   body
-    h1 scs-playground example
-    .red-text A css test
-    #time_display
+    .layout
+      nav.lo-menu
+        ul.menu
+          li.mu-brand
+            a href="#/"
+              | {{ brand }}
+          li.mu-entry.middle-list
+            .mu-icon.ml-cell
+              .img-paper-28x
+            .ml-cell
+              a href="#/post"
+                | 文章列表
+          li.mu-entry.middle-list
+            .mu-icon.ml-cell
+              .img-tag-28x
+            .ml-cell
+              a href="#/tag"
+                | 文章標籤
+          li.mu-entry.middle-list
+            .mu-icon.ml-cell
+              .img-category-28x
+            .ml-cell
+              a href="#/tag"
+                | 文章分類
+          li.mu-entry.middle-list
+            .mu-icon.ml-cell
+              .img-china-28x
+            .ml-cell
+              a href="#/work"
+                | 作品集
+          li.mu-entry.middle-list
+            .mu-icon.ml-cell
+              .img-person-28x
+            .ml-cell
+              a href="#/about"
+                | 關於作者
+      section.lo-main
+        header.lo-header
+          .header
+            .hd-title
+              | {{ header_title }}
+        div ng-view=""
+        footer.lo-footer
+          .footer
+            //a.ft-item rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"
+              img alt="創用 CC 授權條款 - 姓名標示" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"
+            .ft-item
+              | {{ footer_trademark }}
+    script type="text/ng-template" id="./layout/category.html"
+      h1 Category WWW
+    .index-meta
