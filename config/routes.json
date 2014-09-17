@@ -9,6 +9,6 @@
   },
   "/post": {
     "template": "layout/post.html",
-    "ctrl": "TagCtrl"
+    "ctrl": "PostCtrl"
   }
 }

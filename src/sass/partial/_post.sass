@@ -4,29 +4,27 @@ $tag_icon_s: 15px
 
 .post
   //+debug-vertical-alignment
-  .pt-title
-    padding: $padding_l
-    font-size: $fs_l
-    background: $c_main
-    color: $c_white
-  .pt-info
+  .pt-info-area
     float: right
     padding-right: $padding_l
-  .pt-info-icon
-    padding: $padding_m
-  .pt-info-date
-    a
-      margin: $padding_s
-      text-decoration: none
-      line-height: $tag_icon_s
-      color: $c_main
+  .pt-info
+    float: right
   .pt-content
-    margin: $padding_l
+    margin: $padding_m
   p
     code
       padding: 0px $padding_s
-      +adjust-font-size-to($fs_l)
+      +adjust-font-size-to($fs_default)
+      font-size: $fs_default
   pre
     +margin-leader(.5)
     +margin-trailer(.5)
-    font-size: 1.1em
+    font-size: $fs_default
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+  .post
+    .pt-info-area
+      float: none
+      margin: $padding_m
+    .pt-info
+      float: none

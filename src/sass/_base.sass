@@ -29,19 +29,46 @@ code
 
 h1
   +adjust-font-size-to($fs_xl)
+  font-size: $fs_xl
 h2, h3, h4, h5, h6
   +adjust-font-size-to($fs_l)
+  font-size: $fs_l
 p
   +adjust-font-size-to($fs_default)
+  font-size: $fs_default
 
-.tag-list
-  a
+.tag-panel
+  display: table
+  .tp-icon
+    display: table-cell
+    padding: $padding_s $padding_m
+    vertical-align: top
+  .tp-list
+    display: table-cell
+    vertical-align: top
+  .tp-entry
+    float: left
+  .tp-tag
+    display: block
     margin: $padding_s $padding_s $padding_s 0px
-    padding: $padding_s
+    padding: 2px 5px
     text-decoration: none
     color: $c_main
     border: 1px $c_main solid
     border-bottom: 3px $c_main solid
+  .tp-date
+    padding-top: $padding_s + 5px
 
 .meta
   display: none
+
+$fs_ct: $fs_l
+
+.cube-title
+  display: inline-block
+  font-size: $fs_ct
+  padding: $fs_ct
+  border: 5px solid $c_main
+
+  //
+  //line-height: $fs_xl * 2

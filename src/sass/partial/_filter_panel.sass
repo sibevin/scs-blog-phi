@@ -1,0 +1,22 @@
+@import "compass/css3"
+.filter-panel
+  .fp-panel
+    display: table
+    background: $c_bg
+    border-collapse: separate
+    border-spacing: 5px
+  .fp-row
+    display: table-row
+  .fp-icon
+    display: table-cell
+    vertical-align: middle
+  .fp-filter
+    display: table-cell
+    vertical-align: middle
+    border-right: 1px $c_main solid
+    padding: 3px
+  .fp-keyword-query
+    padding: 0px 3px
+    input
+      +box-sizing(border-box)
+      width: 100%

@@ -4,7 +4,7 @@ $list_h: 24px
 
 .home
   .hm-content
-    margin: $padding_l
+    margin: $padding_m
   .hm-entry
     display: table
     padding: $padding_m
@@ -17,27 +17,51 @@ $list_h: 24px
   .hm-info-area
     display: table-cell
     vertical-align: middle
-    line-height: $list_h
+    min-width: 600px
   .hm-info
-    display: table
-  .hm-icon
-    display: table-cell
-    vertical-align: middle
-    padding: $padding_s $padding_m
-  .hm-link
-    display: table-cell
-    vertical-align: middle
-  .hm-tag
-    display: inline
+    float: right
+    .tp-list
+      width: 150px
+    .tp-date
+      width: auto
   .hm-ctrl
     display: table
-  .hm-ctrl-row
-    display: table-row
-  .hm-ctrl-icon
+    width: 100%
+  .hm-ctrl-title
     display: table-cell
-    padding: $padding_m
-  .hm-ctrl-filter
-    display: table-cell
-  .hm-ca-col
-    min-width: 125px
     vertical-align: middle
+    padding: 38px
+    width: 100%
+  .hm-ctrl-panel
+    display: table-cell
+    vertical-align: middle
+    min-width: 500px
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+  .home
+    .hm-entry
+      display: block
+    .hm-title
+      display: block
+      margin-bottom: 5px
+      border-left: 15px solid $c_main
+      padding-left: 8px
+      width: auto
+    .hm-info-area
+      display: block
+      min-width: 0px
+      width: 100%
+      border-left: 1px solid $c_main
+    .hm-info
+      float: none
+      .tp-list
+        width: auto
+    .hm-ctrl
+      display: block
+    .hm-ctrl-title
+      display: block
+      text-align: center
+      padding: 12px 0px
+    .hm-ctrl-panel
+      display: block
+      padding-bottom: 12px

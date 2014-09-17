@@ -3,32 +3,38 @@
   .category programming
   .tags rails angularjs
   .datetime 2014-08-05 12:45:32
+  .template post
 article.post
-  .pt-title 測量mysql query的效能
-  .pt-info.middle-list
-    .pt-info-icon.ml-cell
-      .img-category-24x
-    .tag-list.ml-cell
-      a href="#/category/programming"
-        | programming
-    .pt-info-icon.ml-cell
-      .img-tag-24x
-    .tag-list.ml-cell
-      a href="#/tag/rails"
-        | rails
-      a href="#/tag/angularjs"
-        | angularjs
-    .pt-info-icon.ml-cell
-      .img-clock-24x
-    .pt-info-date.ml-cell
-      a href="#/date/2014"
-        | 2014
-      | /
-      a href="#/date/2014/08"
-        | 08
-      | /
-      a href="#/date/2014/08/05"
-        | 05
+  .pt-info-area
+    .pt-info
+      .tag-panel
+        .tp-icon
+          .img-clock-24x
+        .tp-list.tp-date
+          a href="{{getDateLink(post, 'y')}}"
+            | {{getDateValue(post,'y')}}
+          | /
+          a href="{{getDateLink(post, 'm')}}"
+            | {{getDateValue(post,'m')}}
+          | /
+          a href="{{getDateLink(post, 'd')}}"
+            | {{getDateValue(post,'d')}}
+    .pt-info
+      .tag-panel
+        .tp-icon
+          .img-category-24x
+        .tp-list
+          .tp-entry ng-repeat="ca in post.categories | orderBy:'toString()'"
+            a.tp-tag href="#/category/{{ca}}"
+              | {{ca}}
+    .pt-info
+      .tag-panel
+        .tp-icon
+          .img-tag-24x
+        .tp-list
+          .tp-entry ng-repeat="tag in post.tags | orderBy:'toString()'"
+            a.tp-tag href="#/tag/{{tag}}"
+              | {{tag}}
   .pt-content
     h1 Explain
 

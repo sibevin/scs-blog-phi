@@ -1,6 +1,7 @@
 @import "global"
 
 .layout
+  overflow-x: hidden
   .lo-menu
     position: fixed
     width: $menu_w
@@ -8,5 +9,51 @@
     margin-left: $menu_w
     padding: $padding_s $padding_s $padding_s 0px
   .lo-footer
-    border-top: 1px $c_main solid
     text-align: right
+  .lo-top-header
+    display: none
+  .lo-top-footer
+    display: none
+  .lo-mobile-only
+    display: none
+  .lo-desktop-only
+    display: block
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+  .layout
+    .lo-menu
+      display: none
+    .lo-main
+      margin-left: 0px
+      padding-left: $padding_s
+    .lo-header
+      visibility: hidden
+    .lo-footer
+      visibility: hidden
+    .lo-top-header
+      display: block
+      position: fixed
+      top: 0px
+      right: 0px
+      left: 0px
+      padding: $padding_s
+    .lo-top-footer
+      display: block
+      position: fixed
+      bottom: 0px
+      right: 0px
+      left: 0px
+      margin: 0px $padding_s
+    .lo-mobile-only
+      display: block
+    .lo-desktop-only
+      display: none
+  .lo-open-menu
+    .lo-menu
+      display: block
+      padding-left: 0px
+      position: fixed
+      bottom: 41px
+    .lo-main
+      padding-left: $menu_w + $padding_s
+      margin-right: -$menu_w

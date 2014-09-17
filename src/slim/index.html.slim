@@ -19,7 +19,7 @@ html ng-controller="RootCtrl"
     title
       | {{ brand }}
   body
-    .layout
+    .layout ng-class="{'lo-open-menu': menu_ts.isTab('menu')}"
       nav.lo-menu
         ul.menu
           li.mu-brand
@@ -66,6 +66,26 @@ html ng-controller="RootCtrl"
             //a.ft-item rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"
               img alt="創用 CC 授權條款 - 姓名標示" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"
             .ft-item
+              | {{ footer_trademark }}
+      header.lo-top-header
+        .header
+          .hd-title
+            | {{ header_title }}
+      footer.lo-top-footer
+        .dock ng-show="showFp()"
+          .dk-panel ng-include="'partials/filter_panel.html'" ng-init="fp_uid = 'top'"
+        .footer
+          .ft-item
+            a.ft-ctrl-btn href="" ng-click="menu_ts.switch('menu')"
+              .img-menu-28x ng-hide="menu_ts.isTab('menu')"
+              .img-close-28x ng-show="menu_ts.isTab('menu')"
+            a.ft-ctrl-btn href="" ng-click="menu_ts.switch('fp')" ng-show="enable_fp"
+              .img-search-28x ng-hide="menu_ts.isTab('fp')"
+              .img-close-28x ng-show="menu_ts.isTab('fp')"
+          //a.ft-item rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"
+            img alt="創用 CC 授權條款 - 姓名標示" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"
+          .ft-item.ft-trademark
+            a href="#/"
               | {{ footer_trademark }}
     script type="text/ng-template" id="./layout/category.html"
       h1 Category WWW

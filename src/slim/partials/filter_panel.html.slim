@@ -1,0 +1,18 @@
+.filter-panel ng-controller="FilterPanelCtrl"
+  .fp-panel
+    .fp-row
+      .fp-filter
+        tag-chooser tc-uid="{{$parent.fp_uid}}_cf" tc-tags="categories" tc-model="ca_filter" tc-all-model="ca_filter_all" on-tc-all-change="onCfAllChange()" on-tc-change="onCfChange()"
+      .fp-icon
+        .img-category-24x
+    .fp-row
+      .fp-filter
+        tag-chooser tc-uid="{{$parent.fp_uid}}_tf" tc-tags="tags" tc-model="tag_filter" tc-all-model="tag_filter_all" on-tc-all-change="onTfAllChange()" on-tc-change="onTfChange()"
+      .fp-icon
+        .img-tag-24x
+    .fp-row
+      .fp-filter
+        .fp-keyword-query
+          input type="text"
+      .fp-icon
+        .img-search-24x

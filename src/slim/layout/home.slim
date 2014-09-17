@@ -1,40 +1,14 @@
 article.home
   .hm-content
-    h1 近期文章
     .hm-ctrl
-      .hm-ctrl-row
-        .hm-ctrl-icon
-          .img-category-24x
-        .hm-ctrl-filter.tag-filter
-          .tag-opt
-            input type="checkbox" id="cf_all" name="cf_all" ng-model="ca_filter_all" ng-change="onCfAllChange()"
-            label.tag-label for="cf_all"
-              span.tag-icon
-                | All
-          .tag-opt ng-repeat="ca in categories | orderBy:'toString()'"
-            input type="checkbox" id="cf_{{ca}}" name="cf" value="{{ca}}" ng-model="$parent.ca_filter[ca]" ng-change="onCfChange()"
-            label.tag-label for="cf_{{ca}}"
-              span.tag-icon
-                | {{ca}}
-      .hm-ctrl-row
-        .hm-ctrl-icon
-          .img-tag-24x
-        .hm-ctrl-filter.tag-filter
-          .tag-opt
-            input type="checkbox" id="tf_all" name="tf_all" ng-model="tag_filter_all" ng-change="onTfAllChange()"
-            label.tag-label for="tf_all"
-              span.tag-icon
-                | All
-          .tag-opt ng-repeat="tag in tags | orderBy:'toString()'"
-            input type="checkbox" id="tf_{{tag}}" name="tf" value="{{tag}}" ng-model="$parent.tag_filter[tag]" ng-change="onTfChange()"
-            label.tag-label for="tf_{{tag}}"
-              span.tag-icon
-                | {{tag}}
-      .hm-ctrl-row
-        .hm-ctrl-icon
-          .img-paper-24x
-        .hm-ctrl-filter
-          | 共 {{ getFilteredPosts().length }} 篇文章
+      .hm-ctrl-title
+        .cube-title
+          | 近期
+          br
+          | 文章
+      .hm-ctrl-panel
+        .dock.lo-desktop-only
+          .dk-panel ng-include="'partials/filter_panel.html'" ng-init="fp_uid = 'home'"
     .hm-post-list
       .hm-entry ng-repeat="post in getFilteredPosts()"
         .hm-title
@@ -42,26 +16,31 @@ article.home
             | {{post.title}}
         .hm-info-area
           .hm-info
-            .hm-icon
-              .img-tag-24x
-            .hm-link.tag-list
-              .hm-tag ng-repeat="tag in post.tags | orderBy:'toString()'"
-                a href="#/tag/{{tag}}"
-                  | {{tag}}
-            .hm-icon
-              .img-category-24x
-            .hm-link.tag-list.hm-ca-col
-              .hm-tag ng-repeat="ca in post.categories | orderBy:'toString()'"
-                a href="#/category/{{ca}}"
-                  | {{ca}}
-            .hm-icon
-              .img-clock-24x
-            .hm-link
-              a href="{{getDateLink(post, 'y')}}"
-                | {{getDateValue(post,'y')}}
-              | /
-              a href="{{getDateLink(post, 'm')}}"
-                | {{getDateValue(post,'m')}}
-              | /
-              a href="{{getDateLink(post, 'd')}}"
-                | {{getDateValue(post,'d')}}
+            .tag-panel
+              .tp-icon
+                .img-clock-24x
+              .tp-list.tp-date
+                a href="{{getDateLink(post, 'y')}}"
+                  | {{getDateValue(post,'y')}}
+                | /
+                a href="{{getDateLink(post, 'm')}}"
+                  | {{getDateValue(post,'m')}}
+                | /
+                a href="{{getDateLink(post, 'd')}}"
+                  | {{getDateValue(post,'d')}}
+          .hm-info
+            .tag-panel
+              .tp-icon
+                .img-category-24x
+              .tp-list
+                .tp-entry ng-repeat="ca in post.categories | orderBy:'toString()'"
+                  a.tp-tag href="#/category/{{ca}}"
+                    | {{ca}}
+          .hm-info
+            .tag-panel
+              .tp-icon
+                .img-tag-24x
+              .tp-list
+                .tp-entry ng-repeat="tag in post.tags | orderBy:'toString()'"
+                  a.tp-tag href="#/tag/{{tag}}"
+                    | {{tag}}
