@@ -3,14 +3,17 @@ article.home
     .hm-ctrl
       .hm-ctrl-title
         .cube-title
-          | 近期
-          br
-          | 文章
+          a href="#/post"
+            | 文章
+            br
+            | 列表
+        span.text-title ng-show="title_display != ''"
+          | {{title_display}}
       .hm-ctrl-panel
         .dock.lo-desktop-only
-          .dk-panel ng-include="'partials/filter_panel.html'" ng-init="fp_uid = 'home'"
+          .dk-panel ng-include="'partials/filter_panel.html'" ng-init="fp_uid = 'post'"
     .hm-post-list
-      .hm-entry ng-repeat="post in getFilteredPosts(posts)"
+      .hm-entry ng-repeat="post in getFilteredPosts(posts, options)"
         .hm-title
           a href="{{getPostLink(post)}}"
             | {{post.title}}
@@ -35,7 +38,7 @@ article.home
               .tp-list
                 .tp-entry ng-repeat="ca in post.category | orderBy:'toString()'"
                   a.tp-tag href="#/category/{{ca}}"
-                    | {{ca}}
+                    | {{showTag(ca)}}
           .hm-info
             .tag-panel
               .tp-icon
@@ -43,4 +46,4 @@ article.home
               .tp-list
                 .tp-entry ng-repeat="tag in post.tag | orderBy:'toString()'"
                   a.tp-tag href="#/tag/{{tag}}"
-                    | {{tag}}
+                    | {{showTag(tag)}}

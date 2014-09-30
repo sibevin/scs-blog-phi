@@ -36,7 +36,7 @@
       top: 0px
       right: 0px
       left: 0px
-      padding: $padding_s
+      border: $padding_s solid $c_bg
     .lo-top-footer
       display: block
       position: fixed
@@ -44,9 +44,12 @@
       right: 0px
       left: 0px
       margin: 0px $padding_s
+      background: $c_bg
     .lo-mobile-only
       display: block
     .lo-desktop-only
+      display: none
+    .lo-menu-bg
       display: none
   .lo-open-menu
     .lo-menu
@@ -57,3 +60,10 @@
     .lo-main
       padding-left: $menu_w + $padding_s
       margin-right: -$menu_w
+    .lo-menu-bg
+      display: block
+      position: fixed
+      top: 0px
+      bottom: 0px
+      left: 0px
+      right: 0px

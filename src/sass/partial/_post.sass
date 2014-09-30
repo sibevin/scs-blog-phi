@@ -11,7 +11,7 @@ $tag_icon_s: 15px
     float: right
   .pt-content
     margin: $padding_m
-  p
+  p, li
     code
       padding: 0px $padding_s
       +adjust-font-size-to($fs_default)
@@ -20,6 +20,15 @@ $tag_icon_s: 15px
     +margin-leader(.5)
     +margin-trailer(.5)
     font-size: $fs_default
+  ul
+    +margin-leader(.5)
+    +margin-trailer(.5)
+  li
+    +adjust-font-size-to($fs_default)
+    &:before
+      content: "• "
+      font-size: $fs_default
+      font-weight: bold
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
   .post

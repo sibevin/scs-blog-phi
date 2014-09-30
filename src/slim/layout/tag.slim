@@ -1,1 +1,53 @@
-h1 Tag
+article.home
+  .hm-content
+    div ng-repeat="list_tag in getTagList(target_tag)"
+      .hm-ctrl
+        .hm-ctrl-title
+          .cube-title ng-show="$index == 0"
+            a href="#/tag"
+              | 主
+              br
+              | 標籤
+          .cube-title ng-show="$index != 0"
+            a href="" ng-click="scrollTo('top')"
+              | 子
+              br
+              | 標籤
+          span.text-title ng-show="list_tag != ''"
+            | {{showTag(list_tag)}}
+            |  ({{showTagCount(list_tag)}})
+      .hm-post-list
+        .hm-entry ng-repeat="post in getTagPosts(posts, list_tag)"
+          .hm-title
+            a href="{{getPostLink(post)}}"
+              | {{post.title}}
+          .hm-info-area
+            .hm-info
+              .tag-panel
+                .tp-icon
+                  .img-clock-24x
+                .tp-list.tp-date
+                  a href="{{getDateLink(post, 'y')}}"
+                    | {{getDateValue(post,'y')}}
+                  | /
+                  a href="{{getDateLink(post, 'm')}}"
+                    | {{getDateValue(post,'m')}}
+                  | /
+                  a href="{{getDateLink(post, 'd')}}"
+                    | {{getDateValue(post,'d')}}
+            .hm-info
+              .tag-panel
+                .tp-icon
+                  .img-category-24x
+                .tp-list
+                  .tp-entry ng-repeat="ca in post.category | orderBy:'toString()'"
+                    a.tp-tag href="#/category/{{ca}}"
+                      | {{showTag(ca)}}
+            .hm-info
+              .tag-panel
+                .tp-icon
+                  .img-tag-24x
+                .tp-list
+                  .tp-entry ng-repeat="tag in post.tag | orderBy:'toString()'"
+                    a.tp-tag href="#/tag/{{tag}}"
+                      | {{showTag(tag)}}

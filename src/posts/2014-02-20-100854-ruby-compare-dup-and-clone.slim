@@ -1,0 +1,52 @@
+.meta
+  .title dup與clone的差異
+  .datetime 2014-02-20 10:08:54
+  .tag ruby
+  .category programming
+  .template post
+  .link ruby-compare-dup-and-clone
+  .file 2014-02-20-100854-ruby-compare-dup-and-clone
+
+p
+  code clone
+  | 會複製singleton class的method與constants，
+  code dup不會。
+
+div hljs="" include="'code1'"
+script type="text/ng-template" id="code1"
+  | o = Object.new
+    class << o
+      A = 'aa'
+      def self.b
+        'bb'
+      end
+    end
+
+
+    o.clone.A # "aa"
+    o.dup.A # raise NoMethodError
+    o.clone.b # "bb"
+    o.dup.b # raise NoMethodError
+
+p
+  code clone
+  | 會將freeze的狀態保留下來，
+  code dup不會。
+
+div hljs="" include="'code2'"
+script type="text/ng-template" id="code2"
+  | class Foo
+      attr_accessor: bar
+    end
+    foo = Foo.new
+    foo.freeze
+
+
+    foo.clone.bar = 'cc' # ok
+    foo.dup.bar = 'cc' # raise RuntimeError
+
+h2 Refs
+
+p
+  a href="http://stackoverflow.com/questions/10183370/whats-the-difference-between-rubys-dup-and-clone-methods" target="_blank"
+    | stackoverflow - What's the difference between Ruby's dup and clone methods?

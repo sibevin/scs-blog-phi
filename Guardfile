@@ -1,7 +1,13 @@
-guard 'slim', slim: { :pretty => false },
+guard :slim, slim: { disable_escape: true },
               input_root: 'src/slim',
               output_root: 'app' do
-  watch(%r'^.+\.slim$')
+  watch(%r'^src/slim/.+\.slim$')
+end
+
+guard :slim, slim: { disable_escape: true },
+              input_root: 'src/posts',
+              output_root: 'app/posts' do
+  watch(%r'^src/posts/.+\.slim$')
 end
 
 guard :compass, project_path: 'temp/css',
@@ -11,6 +17,7 @@ guard :coffeescript, :input => 'src/coffeescript',
                      :output => 'temp/js'
 
 #ignore! /app/
+
 
 module ::Guard
   class MergeCssJsGuard < ::Guard::Plugin
@@ -85,4 +92,41 @@ guard 'merge-css-js-guard' do
   watch(%r{temp/css/.*\.css$})
   watch(%r{temp/js/app/.*\.js$})
   watch(%r{temp/js/consts/.*\.js$})
+end
+
+module ::Guard
+  class RenderConstJsGuard < ::Guard::Plugin
+
+    def initialize(options = {})
+      @root_path = Pathname.new(File.dirname(__FILE__))
+      super
+    end
+
+    def run_all
+      render_const_js
+    end
+
+    def run_on_changes(paths)
+      render_const_js(paths)
+    end
+
+    def run_on_modifications(paths)
+      render_const_js(paths)
+    end
+
+    def run_on_addititions(paths)
+      render_const_js(paths)
+    end
+
+    private
+
+    def render_const_js(paths = [])
+      p "Some posts are modified."
+      p paths
+    end
+  end
+end
+
+guard 'render-const-js-guard' do
+  watch(%r{app/posts/.*\.html$})
 end

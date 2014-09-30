@@ -1,0 +1,70 @@
+@import "compass/typography/vertical_rhythm"
+
+$list_h: 24px
+
+.list-page
+  .lp-content
+    margin: $padding_m
+  .lp-entry
+    display: table
+    padding: $padding_m
+    &:hover
+      background: #eee
+  .lp-title
+    display: table-cell
+    vertical-align: middle
+    width: 100%
+  .lp-cell
+    display: table-cell
+    vertical-align: middle
+  .lp-info-area
+    display: table-cell
+    vertical-align: middle
+    min-width: 600px
+  .lp-info
+    float: right
+    .tp-list
+      width: 150px
+    .tp-date
+      width: auto
+  .lp-ctrl
+    display: table
+    width: 100%
+  .lp-ctrl-title
+    display: table-cell
+    vertical-align: middle
+    padding: 38px
+    width: 100%
+  .lp-ctrl-panel
+    display: table-cell
+    vertical-align: middle
+    min-width: 500px
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+  .list-page
+    .lp-entry
+      display: block
+    .lp-title
+      display: block
+      margin-bottom: 5px
+      border-left: 15px solid $c_main
+      padding-left: 8px
+      width: auto
+    .lp-info-area
+      display: block
+      min-width: 0px
+      width: 100%
+      border-left: 1px solid $c_main
+    .lp-info
+      float: none
+      .tp-list
+        width: auto
+    .lp-ctrl
+      display: block
+    .lp-ctrl-title
+      display: block
+      text-align: center
+      padding: 12px 0px
+    .lp-ctrl-panel
+      display: block
+      padding-bottom: 12px

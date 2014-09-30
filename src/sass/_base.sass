@@ -29,13 +29,16 @@ code
 
 h1
   +adjust-font-size-to($fs_xl)
-  font-size: $fs_xl
 h2, h3, h4, h5, h6
+  +leader(0.5)
   +adjust-font-size-to($fs_l)
-  font-size: $fs_l
+  &:before
+    content: "■ "
+    font-size: $fs_l
 p
   +adjust-font-size-to($fs_default)
-  font-size: $fs_default
+  +leader(0.5)
+  +trailer(0.5)
 
 .tag-panel
   display: table
@@ -68,7 +71,10 @@ $fs_ct: $fs_l
   display: inline-block
   font-size: $fs_ct
   padding: $fs_ct
+  margin: 12px
   border: 5px solid $c_main
+  a
+    text-decoration: none
 
-  //
-  //line-height: $fs_xl * 2
+.text-title
+  font-size: $fs_l*2

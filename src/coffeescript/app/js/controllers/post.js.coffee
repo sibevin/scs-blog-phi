@@ -1,32 +1,30 @@
 angular.module("scsBlogApp").controller "PostCtrl", [
-  '$scope', '$filter'
-  ($scope,   $filter) ->
-    TEST_CATEGORIES = ["programming", "life", "css", "tools"]
+  '$scope', '$filter', '$routeParams', '$location'
+  ($scope,   $filter,   $routeParams,   $location) ->
 
-    TEST_TAGS = ["rails", "angularjs", "gem", "works", "rails_controller", "mysql", "pow", "debug"]
+    EMPTY_POST =
+      title: ""
+      categories: []
+      tags: []
+      datetime: "0000-00-00 00:00:00"
+      link: ""
 
-    TEST_POST =
-      title: "測量mysql query的效能，測試文章如果標題太長的話會不會爆掉!!"
-      categories: ["programming", "life", "css", "tools"]
-      tags: ["rails", "angularjs", "gem", "works", "rails_controller", "mysql"]
-      datetime: "2014-08-05 12:45:32"
-      link: "mysql-profiling-query"
-
-    initVars = ->
-      $scope.post = TEST_POST
-
-    loadTags = ->
-      $scope.tags = TEST_TAGS
-
-    loadCategories = ->
-      $scope.categories = TEST_CATEGORIES
+    getHtmlLink = (post) ->
+      post.file
 
     init = ->
-      initVars()
-      $scope.$parent.updateHeaderTitle($scope.post.title)
-      loadTags()
-      loadCategories()
+      $scope.enableFilterPanel(false)
+      # check if link is assigned
+      $scope.target_post = _.find(APP_DATA.posts, (post) ->
+        post.link == $routeParams.link
+      )
+      if $scope.target_post
+        $scope.$parent.updateHeaderTitle($scope.target_post.title)
+        $scope.target_html = "posts/" + getHtmlLink($scope.target_post) + ".html"
+      else
+        $scope.$parent.updateHeaderTitle("找不到對應網址的文章…")
+        $scope.target_post = EMPTY_POST
+
 
     init()
 ]
-

@@ -1,0 +1,30 @@
+article.list-page.tag-list
+  .lp-content
+    .lp-ctrl
+      .lp-ctrl-title
+        .cube-title
+          a href="" ng-click="clearQuery()"
+            | 文章
+            br
+            | 標籤
+      .lp-ctrl-panel
+        .dock
+          .dk-panel
+            .filter-panel
+              .fp-panel
+                .fp-row
+                  .fp-filter
+                    .fp-keyword-query
+                      input type="search" ng-model="query_keyword"
+                  .fp-icon
+                    .img-search-24x
+    .lp-list
+      .lp-entry ng-repeat="tag in getFilteredTags()"
+        .lp-cell
+          .tag-panel
+            .tp-entry
+              .tp-tag
+                a href="#/tag/{{tag}}"
+                  | {{showTag(tag)}}
+        .lp-cell
+          |  ({{showTagCount(tag)}})

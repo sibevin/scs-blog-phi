@@ -3,7 +3,7 @@ blog_app = angular.module('scsBlogApp', ['ngRoute', 'hljs'])
 blog_app.config [
   "$routeProvider"
   ($routeProvider) ->
-    routes = for path,route of ROUTES
+    for path,route of ROUTES
       if route.ctrl
         $routeProvider.
           when(path,
