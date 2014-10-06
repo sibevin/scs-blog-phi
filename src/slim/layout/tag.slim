@@ -14,8 +14,9 @@ article.home
               br
               | 標籤
           span.text-title ng-show="list_tag != ''"
-            | {{showTag(list_tag)}}
+            tag-title-display ttd-model="list_tag"
             |  ({{showTagCount(list_tag)}})
+            //| {{showTag(list_tag)}}
       .hm-post-list
         .hm-entry ng-repeat="post in getTagPosts(posts, list_tag)"
           .hm-title
