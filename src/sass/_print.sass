@@ -1,0 +1,54 @@
+.print
+  .print-only
+    display: block
+  .no-print-only
+    display: none
+  .lo-menu
+    display: none
+  .lo-main
+    margin-left: 0px
+    padding-left: $padding_s
+  .header
+    .hd-title
+      background: $c_bg
+      color: $c_main
+      border: 1px solid $c_main
+  .post
+    .pt-content
+      margin: 0px
+    .hljs
+      background: $c_bg
+      border: 1px solid $c_main
+    pre
+      +margin-leader(.2)
+      +margin-trailer(.2)
+    ul
+      +margin-leader(.2)
+      +margin-trailer(.2)
+    li
+      &:before
+        content: "◦ "
+        font-weight: bold
+    table
+      +margin-leader(.2)
+      +margin-trailer(.2)
+      tr
+        &:hover
+          background: $c_bg
+  h2, h3, h4, h5, h6
+    +leader(0.2)
+    &:before
+      content: "※ "
+  p
+    +leader(0.2)
+    +trailer(0.2)
+  .pt-warning
+    border: 1px solid $c_warning
+    color: $c_warning
+    margin: 3px 0px
+    padding: 20px
+    .pw-text
+      float: left
+    .pw-close
+      float: right
+      cursor: pointer

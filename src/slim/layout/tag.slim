@@ -52,3 +52,4 @@ article.home
                   .tp-entry ng-repeat="tag in post.tag | orderBy:'toString()'"
                     a.tp-tag href="#/tag/{{tag}}"
                       | {{showTag(tag)}}
+    div ng-include="'errors/404.html'" ng-show="target_tag == ''"

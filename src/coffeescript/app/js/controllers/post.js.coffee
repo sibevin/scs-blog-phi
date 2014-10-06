@@ -9,9 +9,6 @@ angular.module("scsBlogApp").controller "PostCtrl", [
       datetime: "0000-00-00 00:00:00"
       link: ""
 
-    getHtmlLink = (post) ->
-      post.file
-
     hasTemplate = (template) ->
       template in target_post.template
 
@@ -21,9 +18,10 @@ angular.module("scsBlogApp").controller "PostCtrl", [
       $scope.target_post = _.find(APP_DATA.posts, (post) ->
         post.link == $routeParams.link
       )
+      $scope.setPrintMode(($routeParams.display == "print"))
       if $scope.target_post
         $scope.$parent.updateHeaderTitle($scope.target_post.title)
-        $scope.target_html = "posts/" + getHtmlLink($scope.target_post) + ".html"
+        $scope.target_html = $scope.getPostHtmlFile($scope.target_post)
       else
         $scope.$parent.updateHeaderTitle("找不到對應網址的文章…")
         $scope.target_post = EMPTY_POST

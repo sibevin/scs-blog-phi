@@ -23,6 +23,9 @@ angular.module("scsBlogApp").controller "RootCtrl", [
       else
         0
 
+    $scope.getPostHtmlFile = (post) ->
+      "posts/" + post.file + ".html"
+
     $scope.getDateLink = (post, kind) ->
       date_arr = getDateArr(post)
       link = "#/post/"
@@ -52,6 +55,9 @@ angular.module("scsBlogApp").controller "RootCtrl", [
 
     $scope.showFp = ->
       $scope.enable_fp && $scope.menu_ts.isTab("fp")
+
+    $scope.setPrintMode = (is_on) ->
+      $scope.is_print_mode = is_on
 
     $scope.getFilteredPosts = (all_posts, options = null) ->
       filtered_posts = $filter("orderBy")(all_posts, "datetime", true)
@@ -106,6 +112,8 @@ angular.module("scsBlogApp").controller "RootCtrl", [
       $scope.fp_data.ca = []
       $scope.fp_data.tag = []
       $scope.fp_data.keyword = ""
+      $scope.is_print_mode = false
+      $scope.is_slides_mode = false
 
     init = ->
       initVars()

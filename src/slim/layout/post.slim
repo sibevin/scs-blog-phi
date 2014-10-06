@@ -1,41 +1,46 @@
 article.post
-  div
-    .pt-info-area ng-hide="target_post.link == ''"
-      .pt-info
-        .tag-panel
-          .tp-icon
-            .img-clock-24x
-          .tp-list.tp-date
-            a href="{{getDateLink(target_post, 'y')}}"
-              | {{getDateValue(target_post,'y')}}
-            | /
-            a href="{{getDateLink(target_post, 'm')}}"
-              | {{getDateValue(target_post,'m')}}
-            | /
-            a href="{{getDateLink(target_post, 'd')}}"
-              | {{getDateValue(target_post,'d')}}
-      .pt-info
-        .tag-panel
-          .tp-icon
-            .img-category-24x
-          .tp-list
-            .tp-entry ng-repeat="ca in target_post.category | orderBy:'toString()'"
-              a.tp-tag href="#/category/{{ca}}"
-                | {{showTag(ca)}}
-      .pt-info
-        .tag-panel
-          .tp-icon
-            .img-tag-24x
-          .tp-list
-            .tp-entry ng-repeat="tag in target_post.tag | orderBy:'toString()'"
-              a.tp-tag href="#/tag/{{tag}}"
-                | {{showTag(tag)}}
-      .pt-info
-        .pi-btnlist
-          .pi-btn
-            a href="#/print/{{target_post.link}}"
-              .img-printer-24x
-          .pi-btn ng-show="hasTemplate('slides')"
-            a href="#/slides/{{target_post.link}}"
-              .img-slides-24x
-    .pt-content ng-include="target_html"
+  .print-only ng-hide="po_closed" ng-init="po_closed = false"
+    .pt-warning
+      .pw-text
+      | 在列印成紙本前請想想可愛的北極熊與企鵝，地球暖化可能會讓它們失去家園。
+      .pw-close ng-click="po_closed = true"
+        | ×
+  .pt-info-area ng-hide="target_post.link == ''"
+    .pt-info
+      .tag-panel
+        .tp-icon
+          .img-clock-24x
+        .tp-list.tp-date
+          a href="{{getDateLink(target_post, 'y')}}"
+            | {{getDateValue(target_post,'y')}}
+          | /
+          a href="{{getDateLink(target_post, 'm')}}"
+            | {{getDateValue(target_post,'m')}}
+          | /
+          a href="{{getDateLink(target_post, 'd')}}"
+            | {{getDateValue(target_post,'d')}}
+    .pt-info
+      .tag-panel
+        .tp-icon
+          .img-category-24x
+        .tp-list
+          .tp-entry ng-repeat="ca in target_post.category | orderBy:'toString()'"
+            a.tp-tag href="#/category/{{ca}}"
+              | {{showTag(ca)}}
+    .pt-info
+      .tag-panel
+        .tp-icon
+          .img-tag-24x
+        .tp-list
+          .tp-entry ng-repeat="tag in target_post.tag | orderBy:'toString()'"
+            a.tp-tag href="#/tag/{{tag}}"
+              | {{showTag(tag)}}
+    .pt-info
+      .pi-btnlist.no-print-only
+        .pi-btn
+          a href="{{getPostLink(target_post)}}?display=print" target="_blank"
+            .img-printer-24x
+        .pi-btn ng-show="hasTemplate('slides')"
+          a href="#/slides/{{target_post.link}}"
+            .img-slides-24x
+  .pt-content ng-include="target_html"

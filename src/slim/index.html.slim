@@ -21,7 +21,7 @@ html ng-controller="RootCtrl"
       | {{ brand }}
   body
     a id="top"
-    .layout ng-class="{'lo-open-menu': menu_ts.isTab('menu')}"
+    .layout ng-class="{'lo-open-menu': menu_ts.isTab('menu'), 'print': is_print_mode, 'slides': is_slides_mode}"
       .lo-menu-bg ng-click="menu_ts.reset()"
       nav.lo-menu
         ul.menu
