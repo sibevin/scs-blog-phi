@@ -11,15 +11,12 @@ $tag_icon_s: 15px
     float: right
   .pt-content
     margin: $padding_m
-  p, li
+  p, li, table
     code
       padding: 0px $padding_s
-      +adjust-font-size-to($fs_default)
-      font-size: $fs_default
   pre
     +margin-leader(.5)
     +margin-trailer(.5)
-    font-size: $fs_default
   ul
     +margin-leader(.5)
     +margin-trailer(.5)
@@ -29,6 +26,23 @@ $tag_icon_s: 15px
       content: "• "
       font-size: $fs_default
       font-weight: bold
+  table
+    +margin-leader(.5)
+    +margin-trailer(.5)
+    tr
+      &:hover
+        background: $c_highlight
+    td
+      +adjust-font-size-to($fs_default)
+      padding: 0px $padding_m
+
+.pt-info
+  .pi-btnlist
+    padding: 0px 8px
+  .pi-btn
+    display: inline-block
+    margin: 2px 3px
+    border: 1px solid $c_main
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
   .post
@@ -37,3 +51,6 @@ $tag_icon_s: 15px
       margin: $padding_m
     .pt-info
       float: none
+  .pt-info
+    .pi-btnlist
+      padding: 5px 5px
