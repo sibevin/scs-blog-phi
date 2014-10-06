@@ -26,4 +26,4 @@ angular.module("scsBlogApp").directive "tagChooser", ->
     </div>'
   controller: ($scope, $element, $attrs) ->
     $scope.showTag = (name) ->
-      name.replace(/_/g, " ‣ ")
+      name.replace(/_/g, " > ")

@@ -35,7 +35,7 @@ article.home
               .tp-list
                 .tp-entry ng-repeat="ca in post.category | orderBy:'toString()'"
                   a.tp-tag href="#/category/{{ca}}"
-                    | {{ca}}
+                    | {{showCa(ca)}}
           .hm-info
             .tag-panel
               .tp-icon
@@ -43,4 +43,4 @@ article.home
               .tp-list
                 .tp-entry ng-repeat="tag in post.tag | orderBy:'toString()'"
                   a.tp-tag href="#/tag/{{tag}}"
-                    | {{tag}}
+                    | {{showTag(tag)}}
