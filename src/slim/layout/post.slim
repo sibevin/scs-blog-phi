@@ -1,6 +1,6 @@
 article.post
   div
-    .pt-info-area
+    .pt-info-area ng-hide="target_post.link == ''"
       .pt-info
         .tag-panel
           .tp-icon
@@ -30,4 +30,12 @@ article.post
             .tp-entry ng-repeat="tag in target_post.tag | orderBy:'toString()'"
               a.tp-tag href="#/tag/{{tag}}"
                 | {{showTag(tag)}}
+      .pt-info
+        .pi-btnlist
+          .pi-btn
+            a href="#/print/{{target_post.link}}"
+              .img-printer-24x
+          .pi-btn ng-show="hasTemplate('slides')"
+            a href="#/slides/{{target_post.link}}"
+              .img-slides-24x
     .pt-content ng-include="target_html"

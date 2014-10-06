@@ -12,6 +12,9 @@ angular.module("scsBlogApp").controller "PostCtrl", [
     getHtmlLink = (post) ->
       post.file
 
+    hasTemplate = (template) ->
+      template in target_post.template
+
     init = ->
       $scope.enableFilterPanel(false)
       # check if link is assigned
@@ -24,7 +27,7 @@ angular.module("scsBlogApp").controller "PostCtrl", [
       else
         $scope.$parent.updateHeaderTitle("找不到對應網址的文章…")
         $scope.target_post = EMPTY_POST
-
+        $scope.target_html = "errors/404.html"
 
     init()
 ]

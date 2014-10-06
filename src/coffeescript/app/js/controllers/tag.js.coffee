@@ -1,6 +1,7 @@
 angular.module("scsBlogApp").controller "TagCtrl", [
   '$scope', '$filter', '$routeParams', '$anchorScroll', '$location'
   ($scope,   $filter,   $routeParams,   $anchorScroll,   $location) ->
+    EMPTY_TAG = ""
 
     $scope.scrollTo = (id) ->
       old = $location.hash()
@@ -9,6 +10,7 @@ angular.module("scsBlogApp").controller "TagCtrl", [
       $location.hash(old)
 
     $scope.getTagList = (query_tag) ->
+      return [] if query_tag == ""
       tags = [query_tag]
       for tag in _.keys(APP_DATA.tags)
         if tag.indexOf(query_tag) > -1
@@ -33,7 +35,8 @@ angular.module("scsBlogApp").controller "TagCtrl", [
         $scope.target_tag = $routeParams.tag
         $scope.updateHeaderTitle("文章標籤 – " + $scope.showTag($scope.target_tag))
       else
-        $location.path("#/tag")
+        $scope.updateHeaderTitle("找不到文章標籤 \"" + $routeParams.tag + "\" ！？")
+        $scope.target_tag = EMPTY_TAG
 
     init()
 ]
