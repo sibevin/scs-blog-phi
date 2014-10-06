@@ -6,11 +6,20 @@ angular.module("scsBlogApp").controller "RootCtrl", [
       _.rest(date_arr)
 
     $scope.showTag = (name) ->
-      name.replace(/_/g, " ‣ ")
+      name.replace(/_/g, " > ")
 
     $scope.showTagCount = (tag) ->
       if APP_DATA.tags[tag]
         APP_DATA.tags[tag].count
+      else
+        0
+
+    $scope.showCa = (name) ->
+      name
+
+    $scope.showCaCount = (ca) ->
+      if APP_DATA.categories[ca]
+        APP_DATA.categories[ca].count
       else
         0
 

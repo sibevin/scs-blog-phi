@@ -11,6 +11,14 @@
     "template": "layout/tag.html",
     "ctrl": "TagCtrl"
   },
+  "/category": {
+    "template": "layout/ca_list.html",
+    "ctrl": "CaListCtrl"
+  },
+  "/category/:ca": {
+    "template": "layout/ca.html",
+    "ctrl": "CaCtrl"
+  },
   "/post/:year/:month/:day/:link": {
     "template": "layout/post.html",
     "ctrl": "PostCtrl"

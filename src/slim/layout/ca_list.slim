@@ -1,0 +1,30 @@
+article.list-page.tag-list
+  .lp-content
+    .lp-ctrl
+      .lp-ctrl-title
+        .cube-title
+          a href="" ng-click="clearQuery()"
+            | 文章
+            br
+            | 分類
+      .lp-ctrl-panel
+        .dock
+          .dk-panel
+            .filter-panel
+              .fp-panel
+                .fp-row
+                  .fp-filter
+                    .fp-keyword-query
+                      input type="search" ng-model="query_keyword"
+                  .fp-icon
+                    .img-search-24x
+    .lp-list
+      .lp-entry ng-repeat="ca in getFilteredCas()"
+        .lp-cell
+          .tag-panel
+            .tp-entry
+              .tp-tag
+                a href="#/category/{{ca}}"
+                  | {{showCa(ca)}}
+        .lp-cell
+          |  ({{showCaCount(ca)}})
