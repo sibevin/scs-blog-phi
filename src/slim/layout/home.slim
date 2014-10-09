@@ -10,7 +10,7 @@ article.home
         .dock.lo-desktop-only
           .dk-panel ng-include="'partials/filter_panel.html'" ng-init="fp_uid = 'home'"
     .hm-post-list
-      .hm-entry ng-repeat="post in getFilteredPosts(posts)"
+      .hm-entry ng-repeat="post in getRecentPosts(posts)"
         .hm-title
           a href="{{getPostLink(post)}}"
             | {{post.title}}
