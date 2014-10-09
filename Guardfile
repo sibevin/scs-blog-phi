@@ -10,6 +10,12 @@ guard :slim, slim: { disable_escape: true },
   watch(%r'^src/posts/.+\.slim$')
 end
 
+guard :slim, slim: { disable_escape: true },
+              input_root: 'src/drafts',
+              output_root: 'app/drafts' do
+  watch(%r'^src/drafts/.+\.slim$')
+end
+
 guard :compass, project_path: 'temp/css',
                 configuration_file: 'config/compass.rb'
 
@@ -17,7 +23,6 @@ guard :coffeescript, :input => 'src/coffeescript',
                      :output => 'temp/js'
 
 #ignore! /app/
-
 
 module ::Guard
   class MergeCssJsGuard < ::Guard::Plugin
@@ -123,10 +128,12 @@ module ::Guard
     def render_const_js(paths = [])
       p "Some posts are modified."
       p paths
+      #system("./scripts/post_parser.rb -V")
     end
   end
 end
 
 guard 'render-const-js-guard' do
   watch(%r{app/posts/.*\.html$})
+  watch(%r{app/drafts/.*\.html$})
 end
