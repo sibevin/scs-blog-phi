@@ -28,7 +28,7 @@ p
   | 使用shell最常做的動作的就是用cd切換目錄，在zsh中只輸入路徑按下[Enter]，就相當於cd到輸入的目錄。
 pre
   code.hljs
-    | ex-app $ app/views/home<span class="mk_b">[Enter]</span>
+    | ex-app $ app/views/home<span class="mk-blue">[Enter]</span>
       ex-app/app/views/home $
 
 h2  跳回上層目錄
@@ -64,8 +64,8 @@ p
   | 任何需要路徑的地方都可以使用模糊搜尋，再按[Tab]自動補完完整的路徑。
 pre
   code.hljs
-    | $ vim a/vi/home/<span class="mk_r">dex</span><span class="mk_b">[Tab]</span>
-      $ vim app/views/home/in<span class="mk_r">dex</span>.html.erb
+    | $ vim a/vi/home/<span class="mk-red">dex</span><span class="mk-blue">[Tab]</span>
+      $ vim app/views/home/in<span class="mk-red">dex</span>.html.erb
 
 h2  回到前一個路徑
 p
@@ -77,17 +77,17 @@ p
 
 pre
   code.hljs
-    | $ cd app<span class="mk_b">[Enter]</span>
+    | $ cd app<span class="mk-blue">[Enter]</span>
       app $
 
-      app $ cd views/home<span class="mk_b">[Enter]</span>
+      app $ cd views/home<span class="mk-blue">[Enter]</span>
       app/views/home $
 
-      app/views/home $ cd -<span class="mk_b">[Tab]</span>
+      app/views/home $ cd -<span class="mk-blue">[Tab]</span>
       1 -- /app/
       2 -- /
 
-      app/views/home $ cd -<span class="mk_b">[2][Enter]</span>
+      app/views/home $ cd -<span class="mk-blue">[2][Enter]</span>
       1 -- /app/
       2 -- /
       $
@@ -103,8 +103,8 @@ p
   | 後加上指令的關鍵字進行搜尋，再按[Tab]就會切換成之前的指令。
 pre
   code.hljs
-    | $ !<span class="mk_r">mys</span><span class="mk_b">[Tab]</span>
-      $ <span class="mk_r">mys</span>ql -uex_dev -pex_dev ex_dev
+    | $ !<span class="mk-red">mys</span><span class="mk-blue">[Tab]</span>
+      $ <span class="mk-red">mys</span>ql -uex_dev -pex_dev ex_dev
 p
   | 如果不是你想要的指令，可以再按[tab]切到一下個符合搜尋的指令。
 
@@ -113,7 +113,7 @@ p
   | 通常要kill一個process，我們都要先找出對應的PID，再用kill PID來砍掉它。在zsh中，可以直接在kill後面接process的名稱，再按[Tab]就會切換成對應的PID。
 pre
   code.hljs
-    | $ kill pow<span class="mk_b">[Tab]</span>
+    | $ kill pow<span class="mk-blue">[Tab]</span>
       $ kill 33785
 
 h2 用*列出多個檔案
@@ -121,11 +121,11 @@ p
   | 在zsh中，可以用*當做萬用字元將多個符合條件的檔案路徑一起找出來。
 pre
   code.hljs
-    | $ ls **/*user*<span class="mk_b">[Tab]</span>
+    | $ ls **/*user*<span class="mk-blue">[Tab]</span>
       $ ls app/models/user.rb db/migrate/20140104024658_create_users.rb spec/factories/users.rb spec/models/user_spec.rb app/controllers/users app/views/users
 pre
   code.hljs
-    | $ ls **/*user*<span class="mk_b">[Enter]</span>
+    | $ ls **/*user*<span class="mk-blue">[Enter]</span>
       app/models/user.rb
       db/migrate/20140104024658_create_users.rb
       spec/factories/users.rb
@@ -180,7 +180,7 @@ p
   | 用zmv只要下面一行就搞定了，超簡單的吧。
 pre
   code.hljs
-    | zmv 'pic<span class="mk_b">(*)</span>-<span class="mk_r">(*)</span>' 'fig<span class="mk_b">$1</span>_<span class="mk_r">$2</span>'
+    | zmv 'pic<span class="mk-blue">(*)</span>-<span class="mk-red">(*)</span>' 'fig<span class="mk-blue">$1</span>_<span class="mk-red">$2</span>'
 p
   | 另外如果只想看更改名稱的結果，但不要真的更改名稱，可以加上參數
   code -n

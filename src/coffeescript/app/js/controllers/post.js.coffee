@@ -1,6 +1,6 @@
 angular.module("scsBlogApp").controller "PostCtrl", [
-  '$scope', '$filter', '$routeParams', '$location'
-  ($scope,   $filter,   $routeParams,   $location) ->
+  '$scope', '$filter', '$routeParams', '$location', '$http'
+  ($scope,   $filter,   $routeParams,   $location,   $http) ->
 
     EMPTY_POST =
       title: ""
@@ -12,6 +12,9 @@ angular.module("scsBlogApp").controller "PostCtrl", [
     hasTemplate = (template) ->
       template in target_post.template
 
+    getDraftHtmlFile = (post) ->
+      "drafts/" + post.file + ".html"
+
     init = ->
       $scope.enableFilterPanel(false)
       # check if link is assigned
@@ -21,7 +24,19 @@ angular.module("scsBlogApp").controller "PostCtrl", [
       $scope.setPrintMode(($routeParams.display == "print"))
       if $scope.target_post
         $scope.$parent.updateHeaderTitle($scope.target_post.title)
-        $scope.target_html = $scope.getPostHtmlFile($scope.target_post)
+        target_html = $scope.getPostHtmlFile($scope.target_post)
+        $http({method: 'GET', url: target_html}).success( (data, status, headers, config) ->
+          $scope.target_html = target_html
+          $scope.is_draft = ($scope.target_post.draft == true)
+        ).error (data, status, headers, config) ->
+          target_html = getDraftHtmlFile($scope.target_post)
+          $http({method: 'GET', url: target_html}).success( (data, status, headers, config) ->
+            $scope.target_html = target_html
+            $scope.is_draft = true
+          ).error (data, status, headers, config) ->
+            $scope.$parent.updateHeaderTitle("找不到對應網址的文章…")
+            $scope.target_post = EMPTY_POST
+            $scope.target_html = "errors/404.html"
       else
         $scope.$parent.updateHeaderTitle("找不到對應網址的文章…")
         $scope.target_post = EMPTY_POST

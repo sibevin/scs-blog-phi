@@ -43,4 +43,7 @@ article.post
         .pi-btn ng-show="hasTemplate('slides')"
           a href="#/slides/{{target_post.link}}"
             .img-slides-24x
+    .pt-info ng-show="is_draft"
+      .pi-draft
+        | 草稿
   .pt-content ng-include="target_html"
