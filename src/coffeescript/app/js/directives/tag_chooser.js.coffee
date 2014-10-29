@@ -24,6 +24,9 @@ angular.module("scsBlogApp").directive "tagChooser", ->
       </div>
       <div class="clearfix" />
     </div>'
-  controller: ($scope, $element, $attrs) ->
-    $scope.showTag = (name) ->
-      name.replace(/_/g, " > ")
+  controller: [
+    "$scope", "$element", "$attrs"
+    ($scope,   $element,   $attrs) ->
+      $scope.showTag = (name) ->
+        name.replace(/_/g, " > ")
+  ]
