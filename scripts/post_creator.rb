@@ -113,6 +113,32 @@ file_header = <<eos
 
 eos
 
+if options.tag.include?("ruby_gem")
+  file_header = file_header + <<eos
+ul
+  li
+    a href="" target="_blank" Homepage
+  li
+    a href="" target="_blank" Github
+  li
+    a href="" target="_blank" RubyGem
+    code
+      |  ()
+h1 What
+p
+  | 
+h1 Why
+p
+  | 
+h1 How
+p
+  | 
+div hljs="" include="'code1'"
+script type="text/ng-template" id="code1"
+  | 
+eos
+end
+
 root_path = Pathname.new(File.dirname(__FILE__)) + ".."
 
 if options.draft
