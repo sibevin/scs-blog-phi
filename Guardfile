@@ -82,8 +82,16 @@ module ::Guard
         Dir["#{@root_path}/temp/js/consts/**/*.js"].each do |src_file|
           f.write(File.read(src_file))
         end
-        Dir["#{@root_path}/temp/js/app/**/*.js"].each do |src_file|
+        # merge app js
+        File.open("#{@root_path}/temp/js/app/js/app.js","r") do |src_file|
           f.write(File.read(src_file))
+        end
+        # merge services, directives, controllers js in order
+        folders = ["services", "directives", "controllers"]
+        folders.each do |fd|
+          Dir["#{@root_path}/temp/js/app/js/#{fd}/*.js"].each do |src_file|
+            f.write(File.read(src_file))
+          end
         end
       end
       system("juicer merge -f -s #{@root_path}/temp/js/app.js -o #{@root_path}/app/js/#{OUTPUT_MIN_JS}")
