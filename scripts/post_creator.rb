@@ -109,7 +109,7 @@ file_header = <<eos
   .link #{post.link}
   .file #{post.name}
   .template #{post.template}
-
+#{options.draft ? "  .draft" : ""}
 
 eos
 
@@ -141,11 +141,7 @@ end
 
 root_path = Pathname.new(File.dirname(__FILE__)) + ".."
 
-if options.draft
-  target_file = root_path + "src/drafts/#{post.name}.slim"
-else
-  target_file = root_path + "src/posts/#{post.name}.slim"
-end
+target_file = root_path + "src/posts/#{post.name}.slim"
 
 File.open(target_file, "w") do |file|
   file.write(file_header)
