@@ -1,0 +1,445 @@
+.meta
+  .title vim指令一覽
+  .datetime 2014-03-03 00:22:40
+  .tag vim cheat-sheet
+  .category tools
+  .link vim-cheat-sheet
+  .file 2014-03-03-002240-vim-cheat-sheet
+  .template post
+  .draft
+
+h1 本文件標示說明
+table
+  tbody
+    tr
+      td
+        code
+          | [a]
+      td
+        | 表示按一下a鍵
+    tr
+      td
+        code
+          | [a]+[b]
+      td
+        | 表示先按一下a鍵，再按一下b鍵
+    tr
+      td
+        code
+          | [Ctrl][a]
+      td
+        | 表示按住[Ctrl]不放，再按一下a鍵
+    tr
+      td
+        code
+          | [Ctrl]([a]+[b])
+      td
+        | 表示按住[Ctrl]不放，按一下a鍵，再按一下b鍵
+    tr
+      td
+        code
+          | [:command]
+      td
+        | 表示在一般模式下，按下[:]後輸入command指令，再按下[Enter]
+h1 一般模式(normal mode)
+h2 移動(move)
+table
+  tbody
+    tr
+      td
+        code
+          | [h]
+      td
+        | 向右
+    tr
+      td
+        code
+          | [j]
+      td
+        | 向下
+    tr
+      td
+        code
+          | [k]
+      td
+        | 向上
+    tr
+      td
+        code
+          | [l]
+      td
+        | 向左
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [Ctrl][b]
+      td
+        | (backward)向前翻一頁
+    tr
+      td
+        code
+          | [Ctrl][f]
+      td
+        | (forward)向後翻一頁
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [w]
+      td
+        | (word)到下一個字首
+    tr
+      td
+        code
+          | [e]
+      td
+        | (end)到下一個字尾
+    tr
+      td
+        code
+          | [b]
+      td
+        | (backward)到上一個字首
+    tr
+      td
+        code
+          | [W]
+      td
+        | (word)到下一個字首，略過標點符號
+    tr
+      td
+        code
+          | [E]
+      td
+        | (end)到下一個字尾，略過標點符號
+    tr
+      td
+        code
+          | [B]
+      td
+        | (backward)到上一個字首，略過標點符號
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [^]
+      td
+        | (head)到本行最前面第一個非空白字元
+    tr
+      td
+        code
+          | [$]
+      td
+        | 到本行最後面
+    tr
+      td
+        code
+          | [0]
+      td
+        | 到本行最前面
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [H]
+      td
+        | (high)到本頁最前面一行
+    tr
+      td
+        code
+          | [M]
+      td
+        | (middle)到本頁中間那一行
+    tr
+      td
+        code
+          | [L]
+      td
+        | (low)到本頁最後一行
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [g]+[g]
+      td
+        | 到本檔案第一行
+    tr
+      td
+        code
+          | [G]
+      td
+        | 到本檔案最後一行
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [:數字]
+      td
+        | 跳至第[數字]行
+    tr
+      td
+        code
+          | [數字]+[|]+[Enter]
+      td
+        | 跳至本行第[數字]個字元
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [(]
+      td
+        | 到下一個句首
+    tr
+      td
+        code
+          | [)]
+      td
+        | 到上一個句首
+    tr
+      td
+        code
+          | [{]
+      td
+        | 到下一個段落
+    tr
+      td
+        code
+          | [}]
+      td
+        | 到上一個段落
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [%]
+      td
+        | 在成對的()，[]，{}之間切換
+h2 刪除(delete)
+table
+  tbody
+    tr
+      td
+        code
+          | [x]
+      td
+        | 刪除游標所在位置字元
+    tr
+      td
+        code
+          | [X]
+      td
+        | 刪除游標所在位置的前一個字元
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [d]+[d]
+      td
+        | (delete)刪除游標所在位置的那一行
+    tr
+      td
+        code
+          | [d]+[w]
+      td
+        | 刪除游標所在位置到字尾
+    tr
+      td
+        code
+          | [d]+[b]
+      td
+        | 刪除游標所在位置的前一個字元到字首
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [d]+[g]+[g]或[d]+[1]+[G]
+      td
+        | 刪除游標所在位置的那一行到檔案第一行
+    tr
+      td
+        code
+          | [d]+[G]
+      td
+        | 刪除游標所在位置的那一行到檔案最後一行
+    tr
+      td
+        code
+          | [d]+[^]或[d]+[0]
+      td
+        | 刪除游標所在位置的前一個字元到本行最前面
+    tr
+      td
+        code
+          | [d]+[$]或[D]
+      td
+        | 刪除游標所在位置字元到本行最後面
+h2 複製與貼上(copy & paste)
+table
+  tbody
+    tr
+      td
+        code
+          | [y]+[y]
+      td
+        | (yank)複製游標所在位置的那一行
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [y]+[w]
+      td
+        | 複製游標所在位置到字尾
+    tr
+      td
+        code
+          | [y]+[b]
+      td
+        | 複製游標所在位置的前一個字元到字首
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [y]+[G]
+      td
+        | 複製游標所在位置的那一行到檔案最後一行
+    tr
+      td
+        code
+          | [y]+[g]+[g]或[y]+[1]+[G]
+      td
+        | 複製游標所在位置的那一行到檔案第一行
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | [p]
+      td
+        | (put)在游標所在位置的字元之後(如果複製的是字或是選取的內容)或是後一行(如果複製的是行)貼上
+    tr
+      td
+        code
+          | [P]
+      td
+        | 在游標所在位置的字元之前(如果複製的是字或是選取的內容)或是前一行(如果複製的是行)貼上
+    tr
+      td
+        br
+      td
+    tr
+      td
+        code
+          | ["]+[緩衝區]+[y]+[y]
+      td
+        | 將複製的那一行放到[緩衝區]中，其中[緩衝區]可以是任何一個英文字母。如果是小寫的英文字母，則新複製的內容會蓋掉原本[緩衝區]內容。如果是大寫字母，則會將新複製的內容接在[緩衝區]內容的後面。
+    tr
+      td
+        code
+          | ["]+[緩衝區]+[p]
+      td
+        | 將[緩衝區]的內容貼上。
+    tr
+      td
+        code
+          | [:reg]或[:register]
+      td
+        | 顯示[緩衝區]的內容
+h2 取代(replace)
+table
+  tbody
+    tr
+      td
+        code
+          | [r]
+      td
+        | (replace)取代游標所在位置的字元。按下[r]之後，再輸入要用來取代的字元
+    tr
+      td
+        code
+          | [R]
+      td
+        | 進入取代模式。按下[R]之後，接下來輸入的字都會蓋掉原本的內容，按[Esc]回到一般模式
+h2 縮排(indent)
+table
+  tbody
+    tr
+      td
+        code
+          | [>]+[>]
+      td
+        | 本行向內縮排一次
+    tr
+      td
+        code
+          | [<]+[<]
+      td
+        | 本行向外縮排一次
+h2 回復(undo)
+table
+  tbody
+    tr
+      td
+        code
+          | [u]
+      td
+        | (undo)回復到編輯之前的狀態
+    tr
+      td
+        code
+          | [Ctrl][r]
+      td
+        | (redo)回復到編輯之後的狀態
+    tr
+      td
+        code
+          | [U]
+      td
+        | 在編輯前後的狀態之間切換，每做一次[U]視做新的一次編輯
+h2 進入插入模式(insert mode)
+table
+  tbody
+    tr
+      td
+        code
+          | 
+      td
+        | 

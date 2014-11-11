@@ -1,0 +1,25 @@
+.meta
+  .title 使用ruby寫script的雜記事本
+  .datetime 2014-10-29 11:22:22
+  .tag ruby
+  .category programming
+  .link ruby-script-programming-notes
+  .file 2014-10-29-112222-ruby-script-programming-notes
+  .template post
+  .draft
+
+h2 如何切換目錄
+
+pre
+  code
+    | system "do something"
+      Dir.chdir("the/target/path/to/change/to") do
+        system "do something"
+      end
+      # back to original path here
+
+h2 取得script檔案的路徑
+
+pre
+  code
+    | script_path = Pathname.new(File.dirname(__FILE__))

@@ -1,0 +1,171 @@
+.meta
+  .title empty？blank？nil？傻傻分不清楚
+  .datetime 2014-11-11 10:39:28
+  .tag ruby rails
+  .category programming
+  .link rails-empty-vs-blank-vs-nil
+  .file 2014-11-11-103928-rails-empty-vs-blank-vs-nil
+  .template post
+
+table.pt-table
+  thead
+    tr
+      td
+        | 值
+      td
+        | nil?
+      td
+        | if ()
+      td
+        | empty?
+      td
+        | blank?
+      td
+        | present?(!blank?)
+  tbody
+    tr
+      td
+        | nil
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+      td.mk-grey
+        | NoMethodError
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+    tr
+      td
+        | false
+      td.mk-red
+        | false
+      td.mk-red
+        | false
+      td.mk-grey
+        | NoMethodError
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+    tr
+      td
+        | true
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-grey
+        | NoMethodError
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+    tr
+      td
+        | 0
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-grey
+        | NoMethodError
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+    tr
+      td
+        | 1
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-grey
+        | NoMethodError
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+    tr
+      td
+        | ""
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-blue
+        | true
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+    tr
+      td
+        | " "
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+    tr
+      td
+        | []
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-blue
+        | true
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+    tr
+      td
+        | [nil]
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+    tr
+      td
+        | {}
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-blue
+        | true
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+    tr
+      td
+        | { a:nil }
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+      td.mk-red
+        | false
+      td.mk-red
+        | false
+      td.mk-blue
+        | true
+h1 Refs
+a href="http://stackoverflow.com/a/20677846/232710" target="_blank"
+  | SO
