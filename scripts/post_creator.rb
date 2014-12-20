@@ -40,7 +40,7 @@ opt_parser = OptionParser.new do |opts|
     options.link = link
   end
   opts.on("-T", "--template template1,template2,template3", Array,
-                "Assign the templates to support. The default value is \"post\".") do |tag|
+                "Assign the templates to support. The default value is \"post\".") do |template|
     options.template = template
   end
   opts.on("-D", "--draft", "Create a draft instead, the file would be stored in src/drafts/.") do |d|
@@ -113,7 +113,7 @@ file_header = <<eos
 
 eos
 
-if options.tag.include?("ruby_gem")
+if options.template.include?("gem")
   file_header = file_header + <<eos
 ul
   li
