@@ -1,0 +1,17 @@
+.meta
+  .title SimpleForm雜筆記本
+  .datetime 2014-12-05 08:50:20
+  .tag rails simple-form tips
+  .category programming
+  .link simple-form-tips
+  .file 2014-12-05-085020-simple-form-tips
+  .template post
+
+h2 如何使用min, max等限制input的範圍
+
+div hljs="" include="'code1'" language="html"
+script type="text/ng-template" id="code1"
+  | <%= simple_form_for @pet do |f| %>
+      <%= f.input :age, input_html: { min: '1' } %>
+      <%= f.button :submit %>
+    <% end %>

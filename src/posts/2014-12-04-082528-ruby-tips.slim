@@ -1,0 +1,44 @@
+.meta
+  .title ruby雜記事本
+  .datetime 2014-12-04 08:25:28
+  .tag ruby tips
+  .category programming
+  .link ruby-tips
+  .file 2014-12-04-082528-ruby-tips
+  .template post
+
+h2 如何在iterate一個string的時候同時取得index與char？
+p
+  | 用
+  code
+    | with_index
+  | 即可
+div hljs="" include="'code1'" language="ruby"
+script type="text/ng-template" id="code1"
+  | my_str.each_char.with_index {|char, index| p index; p char; }
+
+h2 字元與ASCII之間的切換
+p
+  | 字元轉ASCII
+div hljs="" include="'code2'" language="ruby"
+script type="text/ng-template" id="code2"
+  | "a".ord # 97
+
+p
+  | ASCII轉字元
+div hljs="" include="'code3'" language="ruby"
+script type="text/ng-template" id="code3"
+  | 97.chr # "a"
+
+h2 取亂數的做法
+p
+  | 在0到9之間取一個整數亂數
+div hljs="" include="'code4'" language="ruby"
+script type="text/ng-template" id="code4"
+  | rand(10) # 6
+
+p
+  | 在0到1之間取一個小數亂數
+div hljs="" include="'code5'" language="ruby"
+script type="text/ng-template" id="code5"
+  | rand() # 0.7651037452881309
