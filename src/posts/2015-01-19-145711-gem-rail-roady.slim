@@ -1,0 +1,45 @@
+.meta
+  .title RailRoady
+  .datetime 2015-01-19 14:57:11
+  .tag ruby_gem rails
+  .category programming
+  .link gem-rail-roady
+  .file 2015-01-19-145711-gem-rail-roady
+  .template gem
+
+
+ul
+  li
+    a href="https://github.com/preston/railroady" target="_blank" Github
+  li
+    a href="https://rubygems.org/gems/railroady" target="_blank" RubyGem
+    code
+      |  (railroady)
+h1 What
+p
+  | 用來繪製model與controller的圖。
+h1 Why
+p
+  | 用圖更能了解整體model的架構與關聯性。
+h1 How
+p
+  | 1. 要先安裝
+  code
+    | graphviz
+p
+  | 2. 在Gemfile中加入
+  code
+    | railroady
+div hljs="" include="'code1'"
+script type="text/ng-template" id="code1"
+  | group :development, :test do
+      gem 'railroady'
+    end
+p
+  | 3. 下指令
+  code
+    | rake diagram:all
+  | ，圖就會產生在
+  code
+    | doc/
+  | 。
