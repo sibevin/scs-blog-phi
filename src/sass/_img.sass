@@ -1,4 +1,4 @@
-$img_list: ('clock-28x', 'clock_24x', 's', 28px),('category-28x', 'category_24x', 's', 28px),('china-28x', 'china_24x', 's', 28px),('paper-28x', 'paper_24x', 's', 28px),('person-28x', 'person_24x', 's', 28px),('tag-28x', 'tag_24x', 's', 28px),('clock-24x', 'clock_24x', 's', 24px),('tag-24x', 'tag_24x', 's', 24px),('category-24x', 'category_24x', 's', 24px),('paper-24x', 'paper_24x', 's', 24px),('search-24x', 'search_24x', 's', 24px),('search-28x', 'search_24x', 's', 28px),('menu-28x', 'menu_24x', 's', 28px),('close-28x', 'close_24x', 's', 28px),('slides-24x', 'slides_24x', 's', 24px),('file-24x', 'file_24x', 's', 24px),('printer-24x', 'printer_24x', 's', 24px)
+$img_list: ('clock-28x', 'clock_24x', 's', 28px),('category-28x', 'category_24x', 's', 28px),('china-28x', 'china_24x', 's', 28px),('paper-28x', 'paper_24x', 's', 28px),('person-28x', 'person_24x', 's', 28px),('tag-28x', 'tag_24x', 's', 28px),('clock-24x', 'clock_24x', 's', 24px),('tag-24x', 'tag_24x', 's', 24px),('category-24x', 'category_24x', 's', 24px),('paper-24x', 'paper_24x', 's', 24px),('search-24x', 'search_24x', 's', 24px),('search-28x', 'search_24x', 's', 28px),('menu-28x', 'menu_24x', 's', 28px),('close-28x', 'close_24x', 's', 28px),('slides-24x', 'slides_24x', 's', 24px),('file-24x', 'file_24x', 's', 24px),('printer-24x', 'printer_24x', 's', 24px),('trademark', 'footer/trademark_200x50', 180px, 45px),('footer-menu', 'footer/menu_48x', 's', 48px),('footer-search', 'footer/search_48x', 's', 48px),('footer-menu-d', 'footer/menu_d_48x', 's', 48px),('footer-search-d', 'footer/search_d_48x', 's', 48px)
 
 =img($path, $w, $h)
   background: url($path) no-repeat scroll 0 0 rgba(0, 0, 0, 0)
@@ -14,4 +14,4 @@ $img_list: ('clock-28x', 'clock_24x', 's', 28px),('category-28x', 'category_24x'
     @if nth($img,3) == 's'
       +square-img("../../app/images/"+nth($img,2)+".svg", nth($img,4))
     @else
-      +img(nth($img,2), nth($img,3), nth($img,4))
+      +img("../../app/images/"+nth($img,2)+".svg", nth($img,3), nth($img,4))

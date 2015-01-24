@@ -9,9 +9,6 @@ article.home
             | 列表
         span.text-title ng-show="title_display != ''"
           | {{title_display}}
-      .hm-ctrl-panel
-        .dock.lo-desktop-only
-          .dk-panel ng-include="'partials/filter_panel.html'" ng-init="fp_uid = 'post'"
     .hm-post-list
       .hm-entry ng-repeat="post in getFilteredPosts(posts, options)"
         .hm-title

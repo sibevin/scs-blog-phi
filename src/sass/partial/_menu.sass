@@ -1,27 +1,33 @@
 @import "global"
 
+$mu_icon_s: 64px
+$mu_icon_p: 7px
+
+$menu_btn_list: ('paper', 'menu/paper_76x', 'menu/paper_d_76x'),('tag', 'menu/tag_76x', 'menu/tag_d_76x'),('category', 'menu/category_76x', 'menu/category_d_76x'),('work', 'menu/work_76x', 'menu/work_d_76x'),('wizard', 'menu/wizard_76x', 'menu/wizard_d_76x')
+
 .menu
+  display: block
+  position: absolute
+  bottom: 0px
+  padding-bottom: $mu_icon_p
   @mixin mu-item
     display: block
-    padding: 5px
-    margin: $padding_s 0px $padding_s $padding_s
     a
       text-decoration: none
-  .mu-entry
-    @include mu-item
-    border-right: 1px $c_main solid
-    border-left: 5px $c_main solid
-    border-top: 1px $c_main solid
-    border-bottom: 1px $c_main solid
-  .mu-brand
-    @include mu-item
-    padding: $padding_l - 1px 0px
-    border-right: 5px $c_main solid
-    border-left: 5px $c_main solid
-    border-top: 1px $c_main solid
-    border-bottom: 1px $c_main solid
-    text-align: center
-    font-weight: bold
-    font-size: $fs_l
-  .mu-icon
-    padding-right: 3px
+  @each $menu_btn in $menu_btn_list
+    .mu-entry-#{nth($menu_btn,1)}
+      @include mu-item
+      .mu-icon
+        margin: $mu_icon_p $mu_icon_p*2
+        background: url("../../app/images/"+nth($menu_btn,3)+".svg") no-repeat scroll 0 0 rgba(0, 0, 0, 0)
+        background-size: $mu_icon_s $mu_icon_s
+        width: $mu_icon_s
+        height: $mu_icon_s
+      .mu-text
+        color: $c_menu_d
+      &:hover
+        .mu-icon
+          background: url("../../app/images/"+nth($menu_btn,2)+".svg") no-repeat scroll 0 0 rgba(0, 0, 0, 0)
+          background-size: $mu_icon_s $mu_icon_s
+        .mu-text
+          color: $c_menu_fg

@@ -18,75 +18,61 @@ html ng-controller="RootCtrl"
       script type="text/javascript" src="./js/vendor/html5shiv-3.7.2.min.js"
       script type="text/javascript" src="./js/vendor/respond-1.4.2.min.js"
     title
-      | {{ brand }}
+      | 魔法師的手杖
   body
     a id="top"
     .layout ng-class="{'lo-open-menu': menu_ts.isTab('menu'), 'print': is_print_mode, 'slides': is_slides_mode}"
       .lo-menu-bg ng-click="menu_ts.reset()"
       nav.lo-menu
         ul.menu
-          li.mu-brand
-            a href="#/"
-              | {{ brand }}
-          li.mu-entry.middle-list
-            .mu-icon.ml-cell
-              .img-paper-28x
-            .ml-cell
-              a href="#/post"
-                | 文章列表
-          li.mu-entry.middle-list
-            .mu-icon.ml-cell
-              .img-tag-28x
-            .ml-cell
-              a href="#/tag"
-                | 文章標籤
-          li.mu-entry.middle-list
-            .mu-icon.ml-cell
-              .img-category-28x
-            .ml-cell
-              a href="#/category"
-                | 文章分類
-          li.mu-entry.middle-list
-            .mu-icon.ml-cell
-              .img-china-28x
-            .ml-cell
-              a href="#/work"
-                | 作品集
-          li.mu-entry.middle-list
-            .mu-icon.ml-cell
-              .img-person-28x
-            .ml-cell
-              a href="#/about"
-                | 關於作者
+          li.mu-entry-paper.middle-list
+            a href="#/post"
+              .ml-cell
+                .mu-icon
+              .ml-cell
+                .mu-text
+                  | 文章
+          li.mu-entry-tag.middle-list
+            a href="#/tag"
+              .ml-cell
+                .mu-icon
+              .ml-cell
+                .mu-text
+                  | 標籤
+          li.mu-entry-category.middle-list
+            a href="#/category"
+              .ml-cell
+                .mu-icon
+              .ml-cell
+                .mu-text
+                  | 分類
+          li.mu-entry-work.middle-list
+            a href="#/work"
+              .ml-cell
+                .mu-icon
+              .ml-cell
+                .mu-text
+                  | 作品
+          li.mu-entry-wizard.middle-list
+            a href="#/about"
+              .ml-cell
+                .mu-icon
+              .ml-cell
+                .mu-text
+                  | 關於
       section.lo-main
-        header.lo-header
-          .header
-            .hd-title
-              | {{ header_title }}
         div ng-view=""
-        footer.lo-footer
-          .footer
-            .ft-item
-              a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"
-                img alt="創用 CC 授權條款 - 姓名標示" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"
-              | {{ footer_trademark }}
-      header.lo-top-header
-        .header
-          .hd-title
-            | {{ header_title }}
-      footer.lo-top-footer
+      footer.lo-footer
         .dock ng-show="showFp()"
           .dk-panel ng-include="'partials/filter_panel.html'" ng-init="fp_uid = 'top'"
         .footer
           .ft-item
             a.ft-ctrl-btn href="" ng-click="menu_ts.switch('menu')"
-              .img-menu-28x ng-hide="menu_ts.isTab('menu')"
-              .img-close-28x ng-show="menu_ts.isTab('menu')"
+              .img-footer-menu ng-hide="menu_ts.isTab('menu')"
+              .img-footer-menu-d ng-show="menu_ts.isTab('menu')"
             a.ft-ctrl-btn href="" ng-click="menu_ts.switch('fp')" ng-show="enable_fp"
-              .img-search-28x ng-hide="menu_ts.isTab('fp')"
-              .img-close-28x ng-show="menu_ts.isTab('fp')"
+              .img-footer-search ng-hide="menu_ts.isTab('fp')"
+              .img-footer-search-d ng-show="menu_ts.isTab('fp')"
           .ft-item.ft-trademark
-            a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"
-              img alt="創用 CC 授權條款 - 姓名標示" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"
             a href="#/"
-              | {{ footer_trademark }}
+              .img-trademark

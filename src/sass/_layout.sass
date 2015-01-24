@@ -1,23 +1,38 @@
 @import "global"
 
+$menu_border_w: 5px
+
 .layout
   overflow-x: hidden
   .lo-menu
-    position: fixed
-    width: $menu_w
+    display: none
   .lo-main
-    margin-left: $menu_w
-    padding: $padding_s $padding_s $padding_s 0px
+    margin-left: 0px
+    padding: $padding_s $padding_s $footer_h $padding_s
   .lo-footer
-    text-align: right
-  .lo-top-header
-    display: none
-  .lo-top-footer
-    display: none
+    display: block
+    position: fixed
+    bottom: 0px
+    right: 0px
+    left: 0px
   .lo-mobile-only
     display: none
   .lo-desktop-only
     display: block
+  .lo-menu-bg
+    display: none
+.lo-open-menu
+  .lo-menu
+    display: block
+    position: fixed
+    width: $menu_w - $menu_border_w
+    bottom: $footer_h
+    top: 0px
+    border-right: $menu_border_w solid $c_menu_border
+    background: $c_menu_bg
+  .lo-main
+    margin-left: $menu_w
+    padding: $padding_s $padding_s $footer_h $padding_s
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
   .layout
@@ -26,25 +41,6 @@
     .lo-main
       margin-left: 0px
       padding-left: $padding_s
-    .lo-header
-      visibility: hidden
-    .lo-footer
-      visibility: hidden
-    .lo-top-header
-      display: block
-      position: fixed
-      top: 0px
-      right: 0px
-      left: 0px
-      border: $padding_s solid $c_bg
-    .lo-top-footer
-      display: block
-      position: fixed
-      bottom: 0px
-      right: 0px
-      left: 0px
-      margin: 0px $padding_s
-      background: $c_bg
     .lo-mobile-only
       display: block
     .lo-desktop-only
@@ -54,11 +50,8 @@
   .lo-open-menu
     .lo-menu
       display: block
-      padding-left: 0px
-      position: fixed
-      bottom: 41px
     .lo-main
-      padding-left: $menu_w + $padding_s
+      margin-left: $menu_w
       margin-right: -$menu_w
     .lo-menu-bg
       display: block
